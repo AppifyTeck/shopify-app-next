@@ -9,11 +9,16 @@
     "dev": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "deploy": "shopify app deploy"
+    "deploy": "shopify app deploy",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@shopify/app": "^3.46.1",
     "@shopify/cli": "^3.46.1"
   },
-  "author": "rockreyad"
+  "author": "rockreyad",
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2"
+  }
 }
