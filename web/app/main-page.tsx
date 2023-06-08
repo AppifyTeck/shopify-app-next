@@ -30,6 +30,12 @@ export default function Home() {
   const [graphqlData, setGraphglData] = useState<ShopData | null>(null)
   const [getShop] = useLazyQuery<ShopData>(GET_SHOP, {
     fetchPolicy: 'network-only',
+    onCompleted(data) {
+      setGraphglData(data)
+    },
+    onError(error) {
+      console.error(error)
+    },
   })
 
   const handleGetAPIRequest = async () => {
@@ -70,13 +76,7 @@ export default function Home() {
           content: 'GraphQL Query',
           onAction: async () => {
             try {
-              const { data, error } = await getShop()
-              if (data) {
-                setGraphglData(data)
-              }
-              if (error) {
-                console.error(error)
-              }
+              await getShop()
             } catch (err) {
               console.error(err)
             }

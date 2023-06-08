@@ -16,7 +16,7 @@ export default async function Page({
     return <h1>Missing Shop and Host Parameters</h1>
   }
 
-  await performChecks(shop as string, host as string)
+  await performChecks(shop as string, host as string, params)
 
   return (
     <Providers>
